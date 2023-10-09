@@ -20,25 +20,26 @@ class complexNum {
         cout << "function with character parameters" << endl;
     }
 
-    complexNum(){
+    // complexNum(){
 
-    }
+    // }
 
-    complexNum(int r , int i){
-        real = r;
-        imag = i;
-    }
+    // complexNum(int r , int i){
+    //     real = r;
+    //     imag = i;
 
-    complexNum operator + (complexNum num){
+    // }
 
-        complexNum res;
+    // complexNum operator + (complexNum num){
 
-        res.real = real + num.real;
-        res.imag = imag + num.imag;
+    //     complexNum res;
 
-        return res;
+    //     res.real = real + num.real;
+    //     res.imag = imag + num.imag;
 
-    }
+    //     return res;
+
+    // }
 
     void display(){
         cout << real << " + i" <<  imag <<endl;
@@ -47,12 +48,22 @@ class complexNum {
 
 int main(){
 
-    complexNum num1(3 ,7) , num2(7 ,3);
+    complexNum 
+    // num1(3 ,7),
+     num2(3,7);
 
-    complexNum num3 = num1 + num2;
+    // complexNum num3 = num1 + num2;
 
-    num3.display();
+    // num3.display();
 
     
 
 }
+
+
+//constructor
+// &obj ?
+
+
+//function overloading 
+//operator overloading
