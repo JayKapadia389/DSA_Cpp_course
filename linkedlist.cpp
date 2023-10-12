@@ -36,7 +36,7 @@ void insertAtTail(node * &head , int val){
     temp->next=newNode;
 
     // cout << temp->next << " " << temp->next->data << " ";
-    cout << endl;
+    // cout << endl;
 
     return;
 }
@@ -110,8 +110,46 @@ void deleteNode(node * &head , int val){
 
 
     }
+}
+
+void reverseLL(node* &head){
+
+    node *t1 = head ;
+    node *t2 = t1->next ;
+    node *s = t2->next ;
+
+    head->next = NULL;
+
+    while(t2!=NULL){
+        t2->next = t1;
+        t1 = t2;
+        t2 = s;
+        if(s != NULL){
+          s = s->next;
+        }
+
+    }
+
+    head = t1;
+
+    return;
+
+}
 
 
+node * rll(node * head , node * prev , node * curr){
+
+    node * newHead ;
+
+    if(curr == NULL){
+        return prev;
+    }
+
+    newHead = rll(head , curr , curr->next);
+
+    curr->next = prev;
+
+    return newHead;
 }
 
 int main(){
@@ -121,13 +159,18 @@ int main(){
     insertAtTail(head,7);
     insertAtTail(head,2);
     insertAtTail(head,5);
+    insertAtTail(head,6);
+    insertAtTail(head,1);
+    insertAtTail(head,8);
 
     display(head);
 
-    deleteNode(head , 2);
+    node * newHead = rll( head , NULL , head );
 
-    display(head);
+    display(newHead);
 
+    // reverseLL(head);
+    // deleteNode(head , 2);
     // insertAtHead(head , 48);
     // cout << head << " ";
     // insertAtHead(head , 8);
