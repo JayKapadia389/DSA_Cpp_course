@@ -152,23 +152,143 @@ node * rll(node * head , node * prev , node * curr){
     return newHead;
 }
 
+void appendLastKAtFirst(node * &head , int k){
+
+    node * first = NULL , * second = NULL;
+
+    for(int i = 0; i < k ; i++){
+
+        if(i == 0){
+            second = head;
+        }
+        else{
+
+            if(second == NULL){
+                cout << "length is too short";
+                return;
+            }
+            else{
+                second = second -> next ;
+            }
+        }
+    }
+
+    while(second->next != NULL){
+
+        if(first == NULL){
+            first = head;
+        }
+        else{
+            first = first->next;
+        }
+
+        second = second->next;
+
+    }
+
+    node * temp = first->next;
+    first->next = NULL;
+    second->next = head;
+    head = temp;
+
+    return;
+}
+
+void insertCommonNode(node * l1 , node* l2 , int val){
+
+    node * newNode = new node(val);
+
+    node * t1 = l1 , * t2 = l2;
+
+    while(t1 -> next != NULL){
+        t1 = t1 -> next;
+    }
+
+    while(t2 -> next != NULL){
+        t2 = t2 -> next;
+    }
+
+    t1->next = newNode ;
+    t2->next = newNode ;
+
+    return ;
+}
+
+void findIntersection(node * l1 , node * l2){
+
+    node * t1 = l1 , * t2 = l2;
+
+    int c1 = 1 , c2 = 1 ;
+
+    while(t1 -> next != NULL){
+        c1++;
+        t1 = t1 -> next;
+    }
+
+    while(t2 -> next != NULL){
+        c2++;
+        t2 = t2 -> next;
+    }
+
+    if(t1 != t2){
+        cout << "no intersection point";
+        return;
+    }
+
+    int d = (c1 > c2) ? c1 - c2 : c2 - c1 ; 
+
+    t1 = l1 , t2 = l2;
+
+    for(int i= 0 ;  i < d ; i++){
+
+        if(c1> c2){
+            t1 = t1 -> next ;
+        }
+        else{
+            t2 = t2 -> next ;
+        }
+    }
+
+    while(t1 -> next != t2 -> next){
+        t1 = t1->next;
+        t2 = t2->next;
+    }
+
+    cout << t1 -> next -> data ; 
+}
+
 int main(){
 
-    node * head = NULL;
+    node * l1 = NULL , * l2 = NULL;
 
-    insertAtTail(head,7);
-    insertAtTail(head,2);
-    insertAtTail(head,5);
-    insertAtTail(head,6);
-    insertAtTail(head,1);
-    insertAtTail(head,8);
+    insertAtTail(l1,1);
+    insertAtTail(l1,2);
+    insertAtTail(l1,3);
+    insertAtTail(l1,4);
+    insertAtTail(l1,5);
+    insertAtTail(l1,6);
 
-    display(head);
+    insertAtTail(l2,7);
+    insertAtTail(l2,8);
+    insertAtTail(l2,9);
+    insertAtTail(l2,10);
+    insertAtTail(l2,11);
+    insertAtTail(l2,12);
 
-    node * newHead = rll( head , NULL , head );
+    insertCommonNode(l1 , l2 , 13);
+    insertCommonNode(l1 , l2 , 14);
+    insertCommonNode(l1 , l2 , 15);
 
-    display(newHead);
+    display(l1);
+    display(l2);
 
+    findIntersection(l1 , l2);
+
+    // node * newHead = rll( head , NULL , head );
+
+
+
+    // appendLastKAtFirst(head , 8);
     // reverseLL(head);
     // deleteNode(head , 2);
     // insertAtHead(head , 48);
