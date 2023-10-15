@@ -257,37 +257,70 @@ void findIntersection(node * l1 , node * l2){
     cout << t1 -> next -> data ; 
 }
 
+node * merge ( node * l1 , node * l2){
+
+    node * temp1 = l1 , * temp2 = l2; 
+    node * prev = NULL;
+    node * newHead = NULL;
+
+    while(temp1 != NULL || temp2 != NULL){
+
+        if(temp2 == NULL || (temp1 != NULL && (temp1->data < temp2->data)) ){
+
+            if(newHead == NULL){
+                newHead = temp1 ;
+            }
+
+            if(prev != NULL){
+             prev -> next = temp1 ; 
+            }
+            prev = temp1 ;
+            temp1 = temp1->next;
+        }
+        else if(temp1 == NULL || temp1->data >= temp2->data ){
+
+            if(newHead == NULL){
+                newHead = temp2 ;
+            }
+
+            if(prev != NULL){
+             prev -> next = temp2 ; 
+            }
+            prev = temp2 ;
+            temp2 = temp2->next;
+        }
+    }  
+    return newHead;
+}
+
 int main(){
 
     node * l1 = NULL , * l2 = NULL;
 
     insertAtTail(l1,1);
-    insertAtTail(l1,2);
     insertAtTail(l1,3);
-    insertAtTail(l1,4);
-    insertAtTail(l1,5);
     insertAtTail(l1,6);
+    insertAtTail(l1,8);
+    insertAtTail(l1,9);
+    insertAtTail(l1,11);
 
+    insertAtTail(l2,2);
+    insertAtTail(l2,4);
     insertAtTail(l2,7);
-    insertAtTail(l2,8);
-    insertAtTail(l2,9);
     insertAtTail(l2,10);
-    insertAtTail(l2,11);
     insertAtTail(l2,12);
-
-    insertCommonNode(l1 , l2 , 13);
-    insertCommonNode(l1 , l2 , 14);
-    insertCommonNode(l1 , l2 , 15);
+    insertAtTail(l2,14);
 
     display(l1);
     display(l2);
 
-    findIntersection(l1 , l2);
+    display(merge(l1 , l2));
 
     // node * newHead = rll( head , NULL , head );
-
-
-
+    // findIntersection(l1 , l2);
+    // insertCommonNode(l1 , l2 , 13);
+    // insertCommonNode(l1 , l2 , 14);
+    // insertCommonNode(l1 , l2 , 15);
     // appendLastKAtFirst(head , 8);
     // reverseLL(head);
     // deleteNode(head , 2);
