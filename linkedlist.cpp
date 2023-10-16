@@ -333,9 +333,6 @@ int main(){
 
     // cout << search(head , 7) << endl;
     // cout << search(head , 3) << endl;
-    // cout << search(head , 5) << endl;
-
-
-
+    // cout << search(head , 5) << endl;++__++
 
 }
