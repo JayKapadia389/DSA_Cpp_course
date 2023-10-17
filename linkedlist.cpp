@@ -293,29 +293,81 @@ node * merge ( node * l1 , node * l2){
     return newHead;
 }
 
+void evenAfterOdd(node * head){
+
+    node * odd = head , * even = head->next , *evenStart = even ; 
+
+    while(true){
+
+        if(even->next == NULL){
+            break;
+        }
+
+        odd->next = even->next;
+        odd = even->next;
+
+        if(odd->next == NULL){
+            break;
+        }
+
+        even->next = odd->next;
+        even = odd->next;
+    }
+
+    even->next = NULL;
+    odd->next = evenStart ; 
+
+    return;
+
+    // node * last = head ;
+
+    // while(last->next != NULL){
+    //     last = last->next ; 
+    // }
+
+    // node * latest = last;
+    // node * temp = head ;
+    // node * box = NULL;
+
+    // while(temp->next != last && temp != last){
+    //     box = temp->next ; 
+    //     temp->next = temp->next->next;
+    //     latest ->next = box ;
+    //     latest = box ;  
+    // }
+
+    // latest ->next = NULL;
+
+    // return ;
+
+}
+
 int main(){
 
     node * l1 = NULL , * l2 = NULL;
 
     insertAtTail(l1,1);
+    insertAtTail(l1,2);
     insertAtTail(l1,3);
-    insertAtTail(l1,6);
-    insertAtTail(l1,8);
-    insertAtTail(l1,9);
-    insertAtTail(l1,11);
-
-    insertAtTail(l2,2);
-    insertAtTail(l2,4);
-    insertAtTail(l2,7);
-    insertAtTail(l2,10);
-    insertAtTail(l2,12);
-    insertAtTail(l2,14);
+    insertAtTail(l1,4);
+    insertAtTail(l1,5);
+    // insertAtTail(l1,6);
 
     display(l1);
-    display(l2);
 
-    display(merge(l1 , l2));
+    evenAfterOdd(l1);
 
+    display(l1);
+
+
+    // display(l2);
+    // display(merge(l1 , l2));
+    // insertAtTail(l2,2);
+    // insertAtTail(l2,4);
+    // insertAtTail(l2,7);
+    // insertAtTail(l2,10);
+    // insertAtTail(l2,12);
+    // insertAtTail(l2,14);
     // node * newHead = rll( head , NULL , head );
     // findIntersection(l1 , l2);
     // insertCommonNode(l1 , l2 , 13);

@@ -18,7 +18,7 @@ class complexNum {
 
     void fun(char c){
         cout << "function with character parameters" << endl;
-    }
+    };
 
     // complexNum(){
 
