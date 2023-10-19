@@ -19,15 +19,25 @@ int main(){
     string s4 = "aedbc";
     string s5 ;
 
-    // cout << s1.substr(4 , 2);
+    int i=0 ;
+
+    // cout << s1[15];
+
+    // while(s1[i] != ''){
+
+    //     cout << "1";
+    //     i++;
+    // }
+
+    cout << s1.substr(4 , 2);
     // cout << s1.append(s2) ;
     // cout << "s1 " << s1 << endl <<  "s3 " << s3;
     // cout << s4.length();
 
-    getline( cin , s5);
+    // getline( cin , s5);
     // cout << s4;
 
     // sort( s4 , s4+3 );
 
-    cout << s5 ; 
+    // cout << s5 ; 
 }

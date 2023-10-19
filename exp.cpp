@@ -6,7 +6,8 @@ using namespace std ;
 
 int main(){
 
-   int arr[2]= {2,5 };
+   string s;
 
-   cout << arr.length();
+   getline(s , 10);
+   cout << s;
 }
