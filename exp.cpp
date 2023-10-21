@@ -6,8 +6,10 @@ using namespace std ;
 
 int main(){
 
-   string s;
+   cout << static_cast<int>('-') << static_cast<int>('+') << static_cast<int>('*') << " " << static_cast<int>('/');
 
-   getline(s , 10);
-   cout << s;
+   // for(int i = 0 ; i < 256 ; i++){
+
+   //    cout << static_cast<char>(i) << endl;
+   // }
 }
