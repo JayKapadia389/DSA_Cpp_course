@@ -1,8 +1,44 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <math.h>
 
 using namespace std;
+
+void reverse(string &s){
+
+    stack<char> st;
+    int l = s.length() ; 
+
+    for(int i=0 ;i < l ; i++){
+        st.push(s[0]);
+        s = s.erase(0,1);
+    }
+
+    for(int i=0 ;i < l ; i++){
+        cout << "2" << endl ;
+        s += st.top() ;
+        st.pop();
+    }
+
+    return ; 
+
+}
+
+void changeBrackets(string &s){
+
+    for(int i = 0 ; i < s.length() ; i++){
+        if(s[i] == '('){
+            s[i] = ')';
+            continue;
+        }
+        if(s[i] == ')'){
+            s[i] = '(';
+            continue;
+
+        }
+    }
+}
 
 bool isHigh(char top , char curr){
 
@@ -52,6 +88,9 @@ string infixToPostfix(string s){
     string sol = "";
     stack<char> st ; 
 
+    reverse(s);
+    changeBrackets(s);
+
     for(int i = 0 ; i < s.length() ; i++){
 
         if(s[i] == '-' || s[i] == '+' || s[i] == '*' || s[i] == '/' || s[i] == '(' || s[i] == ')' ){
@@ -100,13 +139,19 @@ string infixToPostfix(string s){
 
     // cout << "3";
 
+    reverse(sol);
+
     return sol; 
 }
+
 
 int main(){
 
     string s = "(a-b/c)*(a/k-l)";
 
-    cout << infixToPostfix(s);
+    // cout << infixToPrefix(s);
+
+    
+    cout << infixToPostfix(s); 
 
 }
