@@ -8,9 +8,19 @@ int main(){
 
    // cout << static_cast<int>('-') << static_cast<int>('+') << static_cast<int>('*') << " " << static_cast<int>('/');
 
-   string s = "jay";
+   // string s = "jay";
 
-   cout << s.replace('(');
+   // int i = -1 ; 
+
+   int * arr ;
+
+   arr = new int[20];
+
+   // *arr = 10;
+   arr[0] = 10;
+
+   cout << arr[0] ;
+
 
    // for(int i = 0 ; i < 256 ; i++){
 
