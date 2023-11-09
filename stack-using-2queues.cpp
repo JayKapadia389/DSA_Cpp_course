@@ -152,10 +152,5 @@ int main(){
 
     s1.display();
 
-
-
-
-
-
 }
 

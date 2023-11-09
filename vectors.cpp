@@ -5,19 +5,20 @@ using namespace std;
 
 int main(){
 
-    vector<int> v ; 
+    vector<int> v(3) ; 
 
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
-    v.push_back(4);
+    v[0] = 1;
+    v[1] = 2;
+    v[2] = 3;
 
-    vector<int>::iterator it;
+    // vector<int>::iterator it;
 
-    it = v.begin() ; 
+    // it = v.begin() ; 
 
-    cout << *it ;
-    cout << *(it+1) ;
+    // cout << *it ;
+    // cout << *(it+1) ;
+
+    cout << v[0] << v[1] << v[2] << v[3];
 
     // v.pop_back();
     // v.pop_back();
