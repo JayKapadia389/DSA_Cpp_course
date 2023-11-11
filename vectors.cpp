@@ -5,11 +5,22 @@ using namespace std;
 
 int main(){
 
-    vector<int> v(3) ; 
+    // vector is expandable
+    // if length is predefined 
+    vector<int> v(3); 
 
-    v[0] = 1;
+    v[0] = 1; // data can be added at defined spots
     v[1] = 2;
     v[2] = 3;
+
+    // length is not defined
+
+    vector<int> a;
+
+    a.push_back(1); // data can be added by push_back
+    a.push_back(2);
+    a.push_back(3);
+    a.push_back(7);
 
     // vector<int>::iterator it;
 
@@ -18,9 +29,11 @@ int main(){
     // cout << *it ;
     // cout << *(it+1) ;
 
-    cout << v[0] << v[1] << v[2] << v[3];
+    a.pop_back();
+    a.pop_back();
 
-    // v.pop_back();
+    cout << a[0] << a[1] << a[2] << a[3] ;
+
     // v.pop_back();
     // v.pop_back();
 
