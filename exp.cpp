@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <typeinfo>
 
 using namespace std ;
 
@@ -12,14 +11,20 @@ int main(){
 
    // int i = -1 ; 
 
-   int  arr[] = {1,2,3,4,5};
+   // int  arr[] = {0};
+   int  arr[7];
 
-   arr = new int[20];
+
+
+   // int * arr = new int[20];
 
    // *arr = 10;
-   // arr[0] = 10;
+   // arr[] = {10};
 
-   cout << arr.size() ;
+   for(int i = 0 ; i < 10 ; i++){
+      cout << arr[i] << " ";
+   }
+
 
 
    // for(int i = 0 ; i < 256 ; i++){
