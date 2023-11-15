@@ -1,3 +1,5 @@
+// wrong logic 
+
 #include <iostream>
 #include <stack>
 
@@ -11,8 +13,8 @@ bool recc(stack<int> &st , int target , int &sum , int curr , int &flag){
     else{
 
         int top = st.top();
-    sum+=top; 
-    st.pop() ;
+        sum+=top; 
+        st.pop() ;
 
     if(sum < target){
 

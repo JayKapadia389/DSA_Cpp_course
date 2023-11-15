@@ -1,3 +1,3 @@
-for(int i=0 ; i<n ; i++){
-        cout << " " ;
-    }
+for(int i = 0 ; i < 10 ; i++){
+   //    cout << arr[i] << " ";
+   // }

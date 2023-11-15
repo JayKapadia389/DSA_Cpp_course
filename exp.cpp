@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <queue>
 
 using namespace std ;
 
@@ -7,12 +8,20 @@ int main(){
 
    // cout << static_cast<int>('-') << static_cast<int>('+') << static_cast<int>('*') << " " << static_cast<int>('/');
 
-   string s = "jay";
+   // string s = "jay";
 
    // int i = -1 ; 
 
    // int  arr[] = {0};
-   int  arr[7];
+   // int  arr[7];
+
+   queue<int> q ;
+
+   q.push(2);
+   q.push(3);
+   q.push(5);
+
+   cout << q.size();
 
 
 
@@ -21,9 +30,9 @@ int main(){
    // *arr = 10;
    // arr[] = {10};
 
-   for(int i = 0 ; i < 10 ; i++){
-      cout << arr[i] << " ";
-   }
+   // for(int i = 0 ; i < 10 ; i++){
+   //    cout << arr[i] << " ";
+   // }
 
 
 
