@@ -1,7 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
 class node{
 
     public:
@@ -81,7 +80,6 @@ void inorder(node * root){
 
 }
 
-
 int main(){
 
     int preOrder[] = {1,2,4,3,5};
@@ -94,7 +92,5 @@ int main(){
     cout << endl ;
 
     inorder(root);
-
-
 
 }
