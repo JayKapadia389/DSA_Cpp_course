@@ -17,6 +17,21 @@ class node {
     }
 };
 
+void preOrderPrint(node * root){
+
+    cout << root->data << " "; 
+
+    if(root->left != NULL){
+        preOrderPrint(root->left);
+    }
+
+    if(root->right != NULL){
+        preOrderPrint(root->right);
+    }
+
+    return ;
+}
+
 int countNodes(node * root){
 
     if(root == NULL){
@@ -79,11 +94,95 @@ int heightOfBT(node * root){
 
 int heightOfBTRecc(node * root){
 
-    if(root == NULL){
+    if(root->left == NULL && root->right == NULL){
+        return 0;
+    }
+    else if(root->left == NULL){
+        return heightOfBTRecc(root->right) + 1;
+    }
+    else if(root->right == NULL){
+        return heightOfBTRecc(root->left) + 1 ;
+    }
+    else{
+        return max(heightOfBTRecc(root->left), heightOfBTRecc(root->right)) +1 ;
+    }
+
+}
+
+int diameterOfBT(node * root){
+
+    static int dia = 0;
+
+    if((root->left == NULL && root->right == NULL) || root == NULL){
+        return 0 ;
+    }
+
+    int lh = 0;
+    int rh = 0;
+
+    if(root->left != NULL){
+        lh = heightOfBTRecc(root->left) + 1;
+    }
+    if(root->right != NULL){
+        rh = heightOfBTRecc(root->right) + 1;
+    }
+
+    dia = max(dia , lh + rh);
+
+    diameterOfBT(root->left);
+    diameterOfBT(root->right);
+
+    return dia ;
+
+}
+
+void SumReplacement(node * root){
+
+    int lt = 0;
+    int rt = 0;
+
+    if(root->left){
+    SumReplacement(root->left);
+    lt = root->left->data ; 
+    }
+    if(root->right){
+
+    SumReplacement(root->right);
+    rt = root->right->data ;
+    }
+
+    root->data =  lt + rt + root->data;
+
+    return ;
+
+}
+
+bool isBalanced(node * root){
+
+    if(){
+
+    }
+
+    if(isBalanced(root->left) && isBalanced(root->right)){
+
+        int lh = heightOfBTRecc(root->left);
+        int rh = heightOfBTRecc(root->right);
+
+        if((abs(lh , rh) <= 1)){
+            return 1;
+        }
+        else{
+            return 0; 
+        }
+
+    }
+    else{
         return 0;
     }
 
-    return max(heightOfBTRecc(root->left), heightOfBTRecc(root->right)) + 1;
+    
+
+
 }
 
 int main(){
@@ -91,9 +190,9 @@ int main(){
     /*
         1
         /\
-       2  3
-      / \ / 
-     4  5 6  
+       2   3
+      / \  / 
+     4  5  6  
        /
       9
     */
@@ -108,10 +207,17 @@ int main(){
     root->left->right->left = new node(9);
     root->right->left = new node(6);
 
-    cout << countNodes(root);
-    cout << endl;
-    cout << sumOfAllNodes(root);
-    cout << endl;
-    cout << heightOfBTRecc(root);
+    // cout << countNodes(root);
+    // cout << endl;
+    // cout << sumOfAllNodes(root);
+    // cout << endl;
+    // cout << heightOfBTRecc(root);
+    // cout << endl ;
+    // cout << diameterOfBT(root);
+
+    preOrderPrint(root);
+    cout << endl ;
+    SumReplacement(root);
+    preOrderPrint(root);
 
 }
