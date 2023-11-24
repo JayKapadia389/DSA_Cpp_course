@@ -157,32 +157,110 @@ void SumReplacement(node * root){
 
 }
 
-bool isBalanced(node * root){
+// bool isBalanced(node * root){
 
-    if(){
+//     // if(){
 
-    }
+//     // }
 
-    if(isBalanced(root->left) && isBalanced(root->right)){
+//     if(isBalanced(root->left) && isBalanced(root->right)){
 
-        int lh = heightOfBTRecc(root->left);
-        int rh = heightOfBTRecc(root->right);
+//         int lh = heightOfBTRecc(root->left);
+//         int rh = heightOfBTRecc(root->right);
 
-        if((abs(lh , rh) <= 1)){
-            return 1;
+//         if((abs(lh , rh) <= 1)){
+//             return 1;
+//         }
+//         else{
+//             return 0; 
+//         }
+
+//     }
+//     else{
+//         return 0;
+//     }
+
+// }
+
+void rightViewOfBT(node * root){
+
+    if(root == NULL){
+        cout << "binary tree is empty";
+        return ; 
+    } 
+
+    queue<node *> q;
+    node * front = NULL ; 
+
+    q.push(root);
+    q.push(NULL);
+
+    while(true){
+        front = q.front();
+        q.pop();
+
+        if(front != NULL){
+
+            if(front->left){
+                q.push(front->left);
+            }
+            if(front->right){
+                q.push(front->right);
+            }
+
+            if(q.front() == NULL){
+                cout << front->data << " ";
+            }
         }
         else{
-            return 0; 
+            if(q.empty()){
+                return ;
+            }
+            else{
+                q.push(NULL);
+            }
         }
-
     }
-    else{
-        return 0;
+}
+
+void leftViewOfBT(node * root){
+
+    if(root == NULL){
+        cout << "binary tree is empty";
+        return ;
     }
 
-    
+    queue<node *> q;
+    node * front = NULL ;
 
+    q.push(NULL);
+    q.push(root);
 
+    while(true){
+
+        front = q.front();
+        q.pop();
+
+        if(front == NULL){
+            if(q.empty()){
+                return;
+            }
+            else{
+                cout << q.front()->data << " ";
+
+                q.push(NULL);
+            }
+
+        }
+        else{
+            if(front->left){
+                q.push(front->left);
+            }
+            if(front->right){
+                q.push(front->right);
+            }
+        }
+    }
 }
 
 int main(){
@@ -215,9 +293,8 @@ int main(){
     // cout << endl ;
     // cout << diameterOfBT(root);
 
-    preOrderPrint(root);
+    rightViewOfBT(root);
     cout << endl ;
-    SumReplacement(root);
-    preOrderPrint(root);
+    leftViewOfBT(root);
 
 }
