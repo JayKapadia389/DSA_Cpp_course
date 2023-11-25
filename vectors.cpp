@@ -9,18 +9,17 @@ int main(){
     // if length is predefined 
     vector<int> v(3); 
 
-    v[0] = 1; // data can be added at defined spots
-    v[1] = 2;
-    v[2] = 3;
+    v = {1,2,3}; // data can be added at defined spots
+  
 
     // length is not defined
 
     vector<int> a;
 
-    a.push_back(1); // data can be added by push_back
-    a.push_back(2);
-    a.push_back(3);
-    a.push_back(7);
+    // a.push_back(1); // data can be added by push_back
+    // a.push_back(2);
+    // a.push_back(3);
+    // a.push_back(7);
 
     // vector<int>::iterator it;
 
@@ -29,10 +28,10 @@ int main(){
     // cout << *it ;
     // cout << *(it+1) ;
 
-    a.pop_back();
-    a.pop_back();
+    // a.pop_back();
+    // a.pop_back();
 
-    cout << a[0] << a[1] << a[2] << a[3] ;
+    cout << v[0] << v[1] << v[2]  ;
 
     // v.pop_back();
     // v.pop_back();

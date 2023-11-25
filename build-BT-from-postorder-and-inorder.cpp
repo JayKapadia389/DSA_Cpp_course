@@ -78,6 +78,8 @@ node * buildBT(int postOrder[] , int inOrder[] , int start , int end) {
 
 } 
 
+
+
 int main(){
 
     int postOrder[] = {8,9,2,5,7,3,1};

@@ -294,7 +294,7 @@ int main(){
     // cout << diameterOfBT(root);
 
     rightViewOfBT(root);
-    cout << endl ;
+    cout << endl ;  
     leftViewOfBT(root);
 
 }
