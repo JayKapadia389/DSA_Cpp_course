@@ -7,14 +7,15 @@ int main(){
 
     // vector is expandable
     // if length is predefined 
-    vector<int> v(3); 
+    vector<int> v; 
 
-    v = {1,2,3}; // data can be added at defined spots
+   v.push_back(1);
+   cout << v[0];
+   v.pop_back(); // data can be added at defined spots
   
-
     // length is not defined
 
-    vector<int> a;
+    // vector<int> a;
 
     // a.push_back(1); // data can be added by push_back
     // a.push_back(2);
@@ -31,7 +32,7 @@ int main(){
     // a.pop_back();
     // a.pop_back();
 
-    cout << v[0] << v[1] << v[2]  ;
+    cout << v.size()  ;
 
     // v.pop_back();
     // v.pop_back();
