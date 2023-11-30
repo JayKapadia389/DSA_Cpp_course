@@ -54,10 +54,10 @@ void nodesAtDisK(node * root , node * key , node * k ){
     for(int i = 0 ; i < k   ; i++){
 
         if(i == path.size() - 1){
-            fun(root ,-1 , k);
+            fun(root ,-1 , k- i);
         }
         else{
-            fun(root , v[v.size() - 1 -i] , k);
+            fun(root , v[v.size() - 1 -i] , k-i);
         }
     }
 
