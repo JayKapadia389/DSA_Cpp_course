@@ -1,7 +1,6 @@
 #include <iostream>
 
 using namespace std ;
-
 class node{
 
     public :
@@ -64,12 +63,31 @@ node * getBST(int arr[] , int f , int l){
 
 }
 
+bool isBST(node * root , node * min , node * max){
+
+    if(root == NULL){
+        return true ;
+    }
+
+    if(min != NULL && root->data <= min->data){
+        return false ;
+    }
+
+    if(max != NULL && root->data >= max->data){
+        return false ;
+    }
+
+    return (isBST(root->left , min , root) && isBST(root->right , root , max));
+}
+
 int main(){
 
     int arr[] = {7,5,4,6,8,9};
 
     node * head = getBST(arr , 0 , 5);
 
-    preOrderPrint(head) ; 
+    cout << isBST(head , NULL , NULL );
+
+    // preOrderPrint(head) ; 
 
 }
