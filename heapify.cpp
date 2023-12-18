@@ -55,4 +55,8 @@ int main(){
     vector<int> heap = {2,1,7,9,3,6,5,12};
 
     heapify(heap);
+
+    for(int i = 0 ; i < heap.size() ; i++){
+        cout << heap[i] << " " ; 
+    }
 }
