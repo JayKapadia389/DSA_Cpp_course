@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std ;
 
@@ -63,4 +64,8 @@ int main(){
     for(newit = newMap.begin() ; newit != newMap.end() ; newit++){
         cout << newit->second << " " ;
     }
+
+    vector<int> v ;
+
+    v.clear();
 }
