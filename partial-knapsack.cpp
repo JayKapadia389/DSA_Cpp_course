@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm> 
 
 using namespace std;
 
@@ -16,15 +17,17 @@ int maxValue(vector<vector<int>> v , int W){
 
     for(int i = 0 ; i < v.size()  ; i++){
 
-        if(W - v[1] >= 0){
-            W-= v[1];
-            val+=v[0];
+        if((W - v[i][1]) >= 0){
+            W-= v[i][1];
+            val+=v[i][0];
         }
         else{
-            val+= v[0] * W / v[1];
-            return val ;
-        }
+            val+= v[i][0] * W / v[i][1];
+            break ;    
+            }
     }
+
+    return val ;
 }
 
 int main(){
