@@ -22,7 +22,7 @@ int main(){
     }
 
     queue<int> q ;
-    int vis[n] = {0} , i ;
+    int vis[n+1] = {0} , i ;
 
     int a = 3 ;
 
