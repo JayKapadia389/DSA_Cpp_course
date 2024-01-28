@@ -4,8 +4,28 @@
 
 using namespace std;
 
-bool isCycle(){
+bool isCycle(int curr , vector<vector<int>> &adj , vector<bool> &vis , vector<bool> &stack){
 
+    stack[curr] = 1;
+
+    if(!vis[curr]){
+
+        vis[curr] = 1;
+
+        for(auto i : adj[curr]){
+
+            if(!vis[i] && isCycle(i , adj , vis , stack )){
+                return true ;
+            }
+            if(stack[i]){
+                return true ;
+            }
+        }
+    }
+
+    stack[curr] = false ;
+
+    return false ;
 }
 
 int main(){
@@ -35,13 +55,13 @@ int main(){
     //         {0,0,1,0,0,0,0,0},
     //         {0,0,0,1,0,0,0,0}} ;
     
-    vector<int> vis(n+1);
+    vector<bool> vis(n+1);
     vector<bool> stack(n+1);
     bool cycle = false ;
 
     for(int i = 1 ; i <= n ; i++){
 
-        if(!vis[i] && isCycle()){
+        if(!vis[i] && isCycle(i , adj , vis , stack)){
             cycle = true ;
         }
     }
