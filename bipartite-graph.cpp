@@ -8,24 +8,26 @@ bool isBipartite(int src , vector<vector<int>> adjl , bool c){
     static vector<bool> vis(adjl.size());
     static vector<bool> color(adjl.size());
 
-    bool ans = 0 ;
-
     vis[src] = 1 ;
     color[src] = c ;
 
     for(auto i : adjl[src]){
         if(!vis[i]){
-            if(isBipartite(i , adjl , !c)){
+            if(!isBipartite(i , adjl , !c)){
 
-                return true ;
+                return false ;
             }
         }
         else{
 
+            if(color[i] != (!c)){
+                return false ;
+            }
+
         }
     }
 
-    return false ;
+    return true ;
 
 
 }
@@ -34,10 +36,12 @@ int main(){
 
     int n , m ;
 
+    cin >> n >> m ;
+
     vector<vector<int>> adjl(n+1) ;
     int x , y ;
 
-    for(int i = 0 ; i< m ;i++){
+    for(int i = 0 ; i < m ;i++){
 
         cin >> x >> y ;
 
