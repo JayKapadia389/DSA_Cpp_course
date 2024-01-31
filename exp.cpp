@@ -6,22 +6,21 @@
 
 using namespace std ;
 
-set<int> fun(vector <int> v){
+// set<int> fun(vector <int> v){
 
-   set<int> s;
+//    set<int> s;
 
-   for(int i = 0 ; i < v.size() ; i++){
+//    for(int i = 0 ; i < v.size() ; i++){
 
-       s.insert(v[i]);       
-   }
+//        s.insert(v[i]);       
+//    }
 
-   return s ;
+//    return s ;
 
-}
+// }
 
 int main(){
 
-    stack<string> st ;
 
    // cout << static_cast<int>('-') << static_cast<int>('+') << static_cast<int>('*') << " " << static_cast<int>('/');
 
@@ -54,21 +53,25 @@ int main(){
    //    cout << static_cast<char>(i) << endl;
    // }
 
-   vector<int> v = {1,2,3,7,8};
+//    vector<int> v = {1,2,3,7,8};
 
-   set<int> s = fun(v);
-   set<string> num= {"1" , "s" , "dh"};
+//    set<int> s = fun(v);
+//    set<string> num= {"1" , "s" , "dh"};
 
-   for(auto i : s){
-        cout << i << " " ;
-    }
+//    for(auto i : s){
+//         cout << i << " " ;
+//     }
 
-    cout << endl ;
+//     cout << endl ;
 
-    s.erase(7);
+//     s.erase(7);
 
-    for(auto i : s){
-        cout << i << " " ;
-    }
+//     for(auto i : s){
+//         cout << i << " " ;
+//     }
+
+vector<int> v ;
+cout << v.size() ;
+
 
 }
