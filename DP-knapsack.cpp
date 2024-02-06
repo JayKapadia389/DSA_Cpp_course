@@ -6,16 +6,14 @@ using namespace std;
 int val = 0 , wt = 0 ;
 
 void knapsack(int currVal , int currWt , vector<bool > taken , int idx , vector<pair<int,int>> v , int W){
-    cout << "1" ;
 
     if(idx != -1){
 
         taken[idx] = 1;
 
-        if(currVal + v[idx].first > val){
-            cout << "2" ;
-            val = currVal + v[idx].first ;
-            wt = currWt + v[idx].second ;
+        if(currVal > val){
+            val = currVal;
+            wt = currWt  ;
         }
     }
 
