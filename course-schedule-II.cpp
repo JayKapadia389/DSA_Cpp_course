@@ -51,7 +51,7 @@ public:
 
         set<int> noPreq ;
 
-        for(int i = 0 ; i< prerequisites.size() ; i++){
+        for(int i = 0 ; i< numCourses ; i++){
 
             noPreq.insert(i) ;
             cout << "in>>" << i << endl;
@@ -60,7 +60,7 @@ public:
 
         for(int i = 0 ; i< prerequisites.size() ; i++){
 
-            auto it = noPreq.find(prerequisites[i][0]) ;
+            auto it = noPreq.find(prerequisites[i][1]) ;
 
             if(it != noPreq.end()){
                 noPreq.erase(it) ;
@@ -74,6 +74,9 @@ public:
         }
 
         for(auto it : noPreq){
+
+            cout << "it>> " << it << endl ;
+
             if(!dfs(it)) {
                  cout << "err>2" ;
                 return empty ;
@@ -81,7 +84,8 @@ public:
         }
 
         if(ans.size() != numCourses){
-            cout << "err>3" ;
+
+            cout << "err>3" << " " << ans.size() ;
             return empty ;
         }
 
